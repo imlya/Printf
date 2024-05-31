@@ -15,18 +15,19 @@
 
 int	val_ret(char flag, va_arg(va_list ap, type))
 {
-	char	vali;
+	char	val;
 
 	if (flag == 'c')
-		vali = va_arg(c, char);
-	return (write(1, &vali, 1));
+	//flag = represente le format
+		val = va_arg(c, char);
+	return (write(1, &val, 1));
 }
 
 int	ft_printf(const char *format, ...)
 {
 	int		i;
-	va_list	ptr;
-	va_start(ptr, format);
+	va_list	pa;
+	va_start(pa, format);
 
 	i = 0;
 	while (format[i])
@@ -34,9 +35,9 @@ int	ft_printf(const char *format, ...)
 		if (format[i] = [%] && format[i + 1])
 			val_ret
 	}
-	XXX = va_arg(ptr, const char *);
-	va_end(ptr);
-	return ();
+	XXX = va_arg(pa, const char *);
+	va_end(pa);
+	return (int xxx);
 }
 
 int	ft_len(int nbr)
