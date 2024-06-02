@@ -11,15 +11,16 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-FILES = 
-OBJS = $(FILES .c=.o)
+FILES = ft_print_all.c ft_printf.c functions.c ft_print_id.c
 CC = cc
 FLAGS = -Wall -Wextra -Werror
+INCLUDE= ft_printf.h
+OBJS = $(FILES .c=.o)
 
 all :  $(NAME)
 
 $(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(FLAGS) -I $(INCLUDE) -c $< -o $@
