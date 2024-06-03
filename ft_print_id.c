@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_id.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/03 10:34:59 by imatek            #+#    #+#             */
+/*   Updated: 2024/06/03 12:10:11 by imatek           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	ft_putnbr(int nb)
@@ -42,18 +54,16 @@ int	ft_len(int nbr)
 	return (i);
 }
 
-
-int ft_print_nb(char flag, va_list ap)
+int	ft_print_nb(char flag, va_list ap)
 {
-	int nb_len;
-    int nb;
+	int	nb_len;
+	int	nb;
 
 	nb_len = ft_len(nb);
-    if (flag == 'i' || flag == 'd')
-    {
-	    nb = va_arg(ap, int);
-	    ft_putnbr(nb);
-    }
+	if (flag == 'i' || flag == 'd')
+	{
+		nb = va_arg(ap, int);
+		ft_putnbr(nb);
+	}
 	return (nb_len);
 }
-
