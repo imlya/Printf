@@ -1,22 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b.c                                                :+:      :+:    :+:   */
+/*   c.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 11:48:52 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 13:30:08 by imatek           ###   ########.fr       */
+/*   Created: 2024/05/30 15:44:51 by imatek            #+#    #+#             */
+/*   Updated: 2024/06/04 13:30:15 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_string(va_list pa)
+int	ft_printf(const char *format, ...)
 {
-	char	*val;
+	int		i;
+	int		val;
+	va_list	pa;
 
-	val = (char *)va_arg(pa, int);
-	ft_putstr(val);
-	return (ft_strlen(val));
+	i = 0;
+	val = 0;
+	va_start(pa, format);
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			val += ft_parse(format[i + 1], pa);
+			i++;
+		}
+		else
+			write (1, &format[i], 1);
+		i++;
+	}
+	va_end(pa);
+	return (val);
+}
+
+int main()
+{
+	char c = 'a';
+	// int nb = 1000;
+	printf("%d\n", ft__printf("%c"));
+	return (0);
 }
