@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f.c                                                :+:      :+:    :+:   */
+/*   ft_print_string.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 10:34:37 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 13:30:43 by imatek           ###   ########.fr       */
+/*   Created: 2024/06/04 11:48:52 by imatek            #+#    #+#             */
+/*   Updated: 2024/06/04 13:51:30 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_parse(char flag, va_list pa)
+int	ft_print_string(va_list pa)
 {
-	int	val;
+	char	*val;
 
-	val = 0;
-	if (flag == 'c')
-		val += ft_print_char(pa);
-	else if (flag == 's')
-		val += ft_print_string(pa);
-	//else if (flag == 'p')
-	//	val += ft_print_ptr(pa);
-	//else if (flag == 'u')
-	//	val += ft_print_unsigned(pa);
-	else if (flag == 'i' || flag == 'd')
-		val += ft_print_id(pa);
-	//else if (flag == 'x' || flag == 'X')
-	//	val += ft_putnbr_base_unsigned(pa);
-	else if (flag == '%')
-		val += ft_print_percent(pa);
-	else
-		val = 0;
-	va_end(pa);
-	return (val);
+	val = (char *)va_arg(pa, int);
+	ft_putstr(val);
+	return (ft_strlen(val));
 }

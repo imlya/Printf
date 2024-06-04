@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f.c                                                :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 10:34:37 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 13:30:43 by imatek           ###   ########.fr       */
+/*   Created: 2024/05/30 15:44:51 by imatek            #+#    #+#             */
+/*   Updated: 2024/06/04 13:42:45 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_parse(char flag, va_list pa)
+int	ft_printf(const char *format, ...)
 {
-	int	val;
+	int		i;
+	int		val;
+	va_list	pa;
 
+	i = 0;
 	val = 0;
-	if (flag == 'c')
-		val += ft_print_char(pa);
-	else if (flag == 's')
-		val += ft_print_string(pa);
-	//else if (flag == 'p')
-	//	val += ft_print_ptr(pa);
-	//else if (flag == 'u')
-	//	val += ft_print_unsigned(pa);
-	else if (flag == 'i' || flag == 'd')
-		val += ft_print_id(pa);
-	//else if (flag == 'x' || flag == 'X')
-	//	val += ft_putnbr_base_unsigned(pa);
-	else if (flag == '%')
-		val += ft_print_percent(pa);
-	else
-		val = 0;
+	va_start(pa, format);
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			val += ft_parse(format[i + 1], pa);
+			i++;
+		}
+		else
+			write (1, &format[i], 1);
+		i++;
+	}
 	va_end(pa);
 	return (val);
+}
+
+int main()
+{
+	char c = 'a';
+	// int nb = 1000;
+	printf("%d\n", ft__printf("%c"));
+	return (0);
 }

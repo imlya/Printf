@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   e.c                                                :+:      :+:    :+:   */
+/*   ft_print_id.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 11:48:09 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 13:30:33 by imatek           ###   ########.fr       */
+/*   Created: 2024/06/03 10:34:59 by imatek            #+#    #+#             */
+/*   Updated: 2024/06/04 13:52:48 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_char(va_list pa)
+int	ft_len(int nbr)
 {
-	char	val;
+	int	i;
 
-	val = (char)va_arg(pa, int);
-	write(1, &val, 1);
-	return (1);
+	i = 0;
+	if (nbr == 0)
+		return (1);
+	if (nbr < 0)
+	{
+		nbr *= -1;
+		i++;
+	}
+	while (nbr != 0)
+	{	
+		nbr /= 10;
+		i++;
+	}
+	return (i);
+}
+
+int	ft_print_id(va_list pa)
+{
+	int	val;
+
+	val = va_arg(pa, int);
+	ft_putnbr(val);
+	return (ft_len(val));
 }
