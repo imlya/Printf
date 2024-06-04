@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f.c                                                :+:      :+:    :+:   */
+/*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:34:37 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 13:30:43 by imatek           ###   ########.fr       */
+/*   Updated: 2024/06/04 14:09:47 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_parse(char flag, va_list pa)
 	//else if (flag == 'x' || flag == 'X')
 	//	val += ft_putnbr_base_unsigned(pa);
 	else if (flag == '%')
-		val += ft_print_percent(pa);
+		val += ft_print_percent();
 	else
 		val = 0;
 	va_end(pa);

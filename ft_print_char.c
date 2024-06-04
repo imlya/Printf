@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:48:09 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 13:39:18 by imatek           ###   ########.fr       */
+/*   Updated: 2024/06/04 14:11:54 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_print_char(va_list pa)
 {
 	char	val;
 
-	val = (char)va_arg(pa, int);
+	val = va_arg(pa, int);
 	write(1, &val, 1);
 	return (1);
 }

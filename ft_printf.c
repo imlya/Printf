@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:44:51 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 13:42:45 by imatek           ###   ########.fr       */
+/*   Updated: 2024/06/04 14:12:42 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ int	ft_printf(const char *format, ...)
 
 int main()
 {
-	char c = 'a';
+	char c;
+	
+	c = 'a';
 	// int nb = 1000;
-	printf("%d\n", ft__printf("%c"));
+	printf("%d\n", ft_printf("%c"));
 	return (0);
 }

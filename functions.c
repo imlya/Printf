@@ -6,11 +6,16 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:35:12 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 13:53:38 by imatek           ###   ########.fr       */
+/*   Updated: 2024/06/04 14:14:47 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 int	ft_strlen(const char *s)
 {
@@ -22,7 +27,7 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_putstr_(char *s)
+void	ft_putstr(char *s)
 {
 	int	i;
 
@@ -65,7 +70,7 @@ void	ft_putnbr_base_unsigned(unsigned long long nb, char *base)
 		size_base++;
 	if (nb >= size_base)
 		ft_putnbr_base_unsigned(nb / size_base, base);
-	ft_putchar(nb % size_base, base);
+	ft_putchar(nb % size_base);
 }
 
 //print_hexa nbr - 10 + 'a' ou 'A'
