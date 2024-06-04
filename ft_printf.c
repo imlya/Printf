@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:44:51 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 14:12:42 by imatek           ###   ########.fr       */
+/*   Updated: 2024/06/04 15:26:20 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,18 @@ int	ft_printf(const char *format, ...)
 			i++;
 		}
 		else
-			write (1, &format[i], 1);
+			val += (int)write(1, &format[i], 1);
 		i++;
 	}
 	va_end(pa);
 	return (val);
 }
 
-int main()
-{
-	char c;
-	
-	c = 'a';
-	// int nb = 1000;
-	printf("%d\n", ft_printf("%c"));
-	return (0);
-}
+// int	main(void)
+// {
+// 	char	c;
+
+// 	c = 'a';
+// 	printf("nombre de caractere print = %d\n", ft_printf("%s NULL", NULL));
+// 	return (0);
+// }

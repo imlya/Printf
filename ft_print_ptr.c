@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 11:48:09 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 14:18:33 by imatek           ###   ########.fr       */
+/*   Created: 2024/06/04 11:48:48 by imatek            #+#    #+#             */
+/*   Updated: 2024/06/04 15:52:11 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_char(va_list pa)
+int	ft_print_ptr(va_list pa)
 {
-	char	val;
+	void	*val;
 
-	val = va_arg(pa, int);
-	write(1, &val, 1);
-	return (1);
+	val = va_arg(pa, void *);
+	return (ft_strlen(val));
 }
