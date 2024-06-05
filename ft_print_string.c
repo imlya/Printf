@@ -6,21 +6,43 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 11:48:52 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 15:24:43 by imatek           ###   ########.fr       */
+/*   Updated: 2024/06/05 13:26:11 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+void	ft_putstr(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+}
+
 int	ft_print_string(va_list pa)
 {
-	char	*val;
+	char	*str;
 	int		i;
 
 	i = 0;
-	val = va_arg(pa, char *);
-	if (!val)
-		return (0);
-	ft_putstr(val);
-	return (ft_strlen(val));
+	str = va_arg(pa, char *);
+	if (!str)
+		return (write(1, "(null)", 6));
+	ft_putstr(str);
+	return (ft_strlen(str));
 }

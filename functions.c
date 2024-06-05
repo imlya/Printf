@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:35:12 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 15:12:50 by imatek           ###   ########.fr       */
+/*   Updated: 2024/06/05 14:27:33 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,6 @@
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-}
-
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	ft_putstr(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
 }
 
 void	ft_putnbr(int nb)
@@ -61,16 +39,27 @@ void	ft_putnbr(int nb)
 	}
 }
 
-void	ft_putnbr_base_unsigned(unsigned long long nb, char *base)
+void	ft_putnbr_base_unsigned(unsigned long nb, char *base)
 {
-	unsigned long long		size_base;
+	unsigned long	size_base;
 
-	size_base = 0;
-	while (base[size_base])
-		size_base++;
+	size_base = (unsigned long)ft_strlen(base);
 	if (nb >= size_base)
 		ft_putnbr_base_unsigned(nb / size_base, base);
-	ft_putchar(nb % size_base);
+	ft_putchar(base[nb % size_base]);
 }
 
-//print_hexa nbr - 10 + 'a' ou 'A'
+int	ft_len_base_unsigned(unsigned long nbr, int base)
+{
+	unsigned long	i;
+
+	i = 0;
+	if (nbr == 0)
+		return (1);
+	while (nbr)
+	{	
+		i++;
+		nbr = nbr / base;
+	}
+	return (i);
+}

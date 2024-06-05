@@ -6,7 +6,7 @@
 /*   By: imatek <imatek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:34:37 by imatek            #+#    #+#             */
-/*   Updated: 2024/06/04 15:49:40 by imatek           ###   ########.fr       */
+/*   Updated: 2024/06/05 12:34:09 by imatek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_parse(char flag, va_list pa)
 {
 	int	val;
 
-	val = -1;
+	val = 0;
 	if (flag == 'c')
 		val = ft_print_char(pa);
 	else if (flag == 's')
@@ -28,10 +28,10 @@ int	ft_parse(char flag, va_list pa)
 	else if (flag == 'i' || flag == 'd')
 		val = ft_print_id(pa);
 	else if (flag == 'x' || flag == 'X')
-		val = ft_print_hexa(pa);
+		val = ft_print_hexa(pa, flag);
 	else if (flag == '%')
 		val = ft_print_percent();
 	else
-		val = -1;
+		val = 0;
 	return (val);
 }
